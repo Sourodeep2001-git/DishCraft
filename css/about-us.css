@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  header nav a {
+    font-family: "Parkinsans", serif;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  header nav a:hover {
+    text-decoration: underline;
+  }
+
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  .card img {
+    object-fit: cover;
+    height: 250px;
+  }
+  
+  .card-body {
+    font-family: "Parkinsans", serif;
+    background-color: #d0dbe6;
+  }
+
+  .team-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  footer {
+    font-family: "Parkinsans", serif;
+    background-color: #000000;
+    position:sticky;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+  }
+  
+  footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    font-family: "Parkinsans", serif;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  

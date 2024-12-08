@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Parkinsans", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0aa5ecd7, rgb(232, 151, 243) 50%, #bf53f1c0);
+  color: #0e0d0d;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdfdfd;
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 0 1px 5px rgba(42, 42, 43, 0.822);
+}
+
+header .logo img {
+  height: 75px;
+}
+
+.menu-icon {
+  display: none; /* Initially hidden for larger screens */
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Navbar (Horizontal Menu) */
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #bd0442;
+}
+
+
+
+.menu-icon {
+  display: none; /* Initially hidden for larger screens */
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+
+.side-nav {
+  height: 100%; /* Full height */
+  width: 0; /* Initially hidden */
+  position: fixed; /* Stay in place */
+  top: 0;
+  right: 0; /* Slide-in from the right */
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s; /* Smooth open/close */
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+.side-nav :hover{
+  color:yellow
+}
+
+.side-nav a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-nav a:hover {
+  background-color: #575757;
+}
+
+.side-nav .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (min-width: 769px) {
+header .menu-icon {
+  display: none; /* Hide hamburger menu on larger screens */
+}
+}
+
+/* Search Bar Styling */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.search-container input {
+  padding: 10px;
+  width: 300px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.search-container input:focus {
+  border-color: #ff6f61;
+  box-shadow: 0 0 10px rgba(199, 106, 97, 0.5);
+}
+
+.search-container button {
+  margin-left: -40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button img {
+  width: 25px;
+  height: 25px;
+}
+
+/* Main Content Styling */
+main {
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+main h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background: linear-gradient(to left, #080808, #444343c9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#recipe-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+.recipe-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover; /* Ensures image fits nicely */
+  margin-bottom: 15px;
+}
+
+.recipe-card h3 {
+  font-size: 1.3em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.recipe-card p {
+  margin: 10px 0 15px;
+  color: #666;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.view-recipe-btn {
+  background-color: #e73740; /* Red background */
+  color: white; /* White text */
+  padding: 8px 15px; /* Compact padding */
+  font-size: 0.9em; /* Slightly smaller font */
+  border: 2px solid #dd2323; /* Red border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center;
+  display: inline-block;
+  text-decoration: none; /* Remove underline from link */
+  margin: 10px auto 0; /* Center button with margin */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.view-recipe-btn:hover {
+  background-color: #0f1f7a; 
+  border: 2px solid #232fdd;/* Darker blue on hover */
+  transform: scale(1.05); /* Slight hover effect */
+}
+
+.view-recipe-btn:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Blue glow on focus */
+}
+
+
+/* Footer Styling */
+footer {
+  font-family: "Parkinsans", serif;
+  background-color: #000000;
+  position:sticky;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show hamburger menu on mobile */
+  }
+
+  nav {
+    display: none; /* Hide the horizontal menu on mobile */
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-icon {
+    display: none; /* Hide hamburger menu on larger screens */
+  }
+
+  nav {
+    display: flex; /* Show horizontal menu on larger screens */
+  }
+}
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recipe-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  main h2 {
+    font-size: 2rem;
+  }
+
+  .recipe-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .view-recipe-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main h2 {
+    font-size: 1.8rem;
+  }
+}

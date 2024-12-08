@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DishCraft-Home</title>
+  <link rel="icon" type="image/x-icon" href="dishcraft-icon.jpg">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo1.png" alt="DishCraft Logo">
+    </div>
+  
+    <!-- Horizontal Navigation Menu -->
+    <nav>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+      <a href="about-us.html">About Us</a>
+      <a href="contact-us.html">Contact</a>
+    </nav>
+  
+    <!-- Menu Icon for Mobile -->
+    <div class="menu-icon" onclick="openNav()">
+      &#9776;
+    </div>
+  </header>
+  
+  <!-- Side Navigation for Mobile -->
+  <div id="side-menu" class="side-nav">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+    <a href="register.html">Register</a>
+    <a href="login.html">Login</a>
+    <a href="about-us.html">About Us</a>
+    <a href="contact-us.html">Contact</a>
+  </div>
+  
+  <!-- Search Bar -->
+  <div class="search-container">
+    <form class="example" action="#">
+      <input type="text" id="search-input" placeholder="Search recipes..." />
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Recipes</h2>
+    <div id="recipe-list" class="row">
+      <!-- Recipes will be dynamically loaded here -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2024 DishCraft. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+   <script>
+    // Open the side menu
+function openNav() {
+  const sideMenu = document.getElementById("side-menu");
+  if (sideMenu) {
+    sideMenu.style.width = "250px"; // Set width to open the sidebar
+  }
+}
+
+// Close the side menu
+function closeNav() {
+  const sideMenu = document.getElementById("side-menu");
+  if (sideMenu) {
+    sideMenu.style.width = "0"; // Set width to 0 to close the sidebar
+  }
+}
+
+   </script>
+  <script src="js/index.js" type="module"></script>
+</body>
+</html>
