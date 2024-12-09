@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
 /* General Reset */
 body, h2, input, button {
   margin: 0;
@@ -9,14 +10,14 @@ body, h2, input, button {
 body {
   font-family: "Parkinsans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
-  background-color: #b8abc4;
+  font-weight: 400;
+  background: linear-gradient(135deg, #d58fdf, #f5f37a);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  padding: 10px;
+  padding: 10px; /* Prevents content from touching screen edges */
 }
 
 /* Form Container */
@@ -24,7 +25,7 @@ body {
   background: #ffffff;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   max-width: 400px;
   width: 100%;
   text-align: center;
@@ -32,12 +33,14 @@ body {
 
 /* Form Heading */
 #login-form h2 {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   font-size: 1.5rem;
+  font-weight: bold;
   color: #333;
 }
 
 /* Input Fields */
+#login-form input[type="text"],
 #login-form input[type="email"],
 #login-form input[type="password"] {
   width: 100%;
@@ -62,7 +65,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: #2aa9e4;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -70,7 +73,43 @@ body {
 }
 
 #login-form button:hover {
-  background-color: #0056b3;
+  background-color: #1a3bca;
+}
+/* Style for the password container */
+.password-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Password input field */
+.password-container input {
+  width: 100%;
+  padding-right: 45px; /* Space for the eye icon */
+  box-sizing: border-box;
+}
+
+/* Eye icon */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px; /* Adjust icon size */
+  color: #888;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .toggle-password {
+    font-size: 16px; /* Slightly smaller icon for smaller screens */
+  }
 }
 
 /* Extra Links */
@@ -89,40 +128,28 @@ body {
   text-decoration: underline;
 }
 
-.forgot-password {
-  display: inline-block;
-  margin-top: 0.75rem;
-  font-size: 0.875rem;
-  color: #007bff;
-  text-decoration: none;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-  color: #0056b3;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
     padding: 20px;
   }
 
-  #login-form {
+  #register-form {
     padding: 1.5rem;
   }
 
-  #login-form h2 {
+  #register-form h2 {
     font-size: 1.25rem;
   }
 
-  #login-form input[type="email"],
-  #login-form input[type="password"] {
+  #register-form input[type="text"],
+  #register-form input[type="email"],
+  #register-form input[type="password"] {
     padding: 0.625rem;
     font-size: 0.875rem;
   }
 
-  #login-form button {
+  #register-form button {
     font-size: 0.875rem;
   }
 
@@ -130,3 +157,29 @@ body {
     font-size: 0.75rem;
   }
 }
+
+@media (max-width: 480px) {
+  #register-form {
+    padding: 1rem;
+  }
+
+  #register-form h2 {
+    font-size: 1.1rem;
+  }
+
+  #register-form input[type="text"],
+  #register-form input[type="email"],
+  #register-form input[type="password"] {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  #register-form button {
+    font-size: 0.8rem;
+  }
+
+  .extra-links {
+    font-size: 0.7rem;
+  }
+}
+
