@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DishCraft-Registration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" type="image/x-icon" href="dishcraft-icon.jpg">
   <link rel="stylesheet" href="css/register.css">
 </head>
@@ -12,12 +13,44 @@
     <h2>Register</h2>
     <input type="text" id="name" placeholder="Name" required>
     <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
+    <div class="password-container">
+      <input type="password" id="password" placeholder="Password" required>
+      <span class="toggle-password" id="toggle-password">
+        <i class="fa fa-eye" id="eye-icon"></i>
+      </span>
+    </div>
     <button type="submit">Register</button>
     <div class="extra-links">
       <p>Do you have an account? <a href="login.html" class="sign-in-link">Sign In</a></p>
     </div>
   </form>
+  
+  <script>
+   document.addEventListener("DOMContentLoaded", () => {
+  const passwordInput = document.getElementById("password");
+  const togglePassword = document.getElementById("toggle-password");
+  const eyeIcon = document.getElementById("eye-icon");
+
+  if (passwordInput && togglePassword) {
+    togglePassword.addEventListener("click", () => {
+      // Toggle password visibility
+      const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+      passwordInput.setAttribute("type", type);
+
+      // Toggle the icon
+      if (type === "password") {
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+      } else {
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+      }
+    });
+  }
+});
+
+
+  </script>
   <script src="js/register.js" type="module"></script>
 </body>
 </html>
