@@ -10,26 +10,20 @@
 </head>
 <body>
   <header>
-    <!-- Logo -->
     <div class="logo">
       <img src="logo1.png" alt="DishCraft Logo">
     </div>
-  
-    <!-- Horizontal Navigation Menu -->
     <nav>
       <a href="register.html">Register</a>
       <a href="login.html">Login</a>
       <a href="about-us.html">About Us</a>
       <a href="contact-us.html">Contact</a>
     </nav>
-  
-    <!-- Menu Icon for Mobile -->
     <div class="menu-icon" onclick="openNav()">
       &#9776;
     </div>
   </header>
-  
-  <!-- Side Navigation for Mobile -->
+
   <div id="side-menu" class="side-nav">
     <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
     <a href="register.html">Register</a>
@@ -37,8 +31,6 @@
     <a href="about-us.html">About Us</a>
     <a href="contact-us.html">Contact</a>
   </div>
-  
-  <!-- Search Bar -->
   <div class="search-container">
     <form class="example" action="#">
       <input type="text" id="search-input" placeholder="Search recipes..." />
@@ -46,7 +38,6 @@
     </form>
   </div>
 
-  <!-- Main Content -->
   <main>
     <h2>Recipes</h2>
     <div id="recipe-list" class="row">
@@ -56,29 +47,45 @@
 
   <footer>
     <div class="container text-center">
+      <p class="visitor-counter">Visitor Count : <span id="visitor-count">0</span></p>
+      <br>
       <p>&copy; 2024 DishCraft. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- JavaScript -->
-   <script>
-    // Open the side menu
+  <script>
+    function updateVisitorCount() {
+      let count = localStorage.getItem("visitorCount");
+      if (!count) {
+        count = 1;
+      } else {
+        count = parseInt(count) + 1;
+      }
+      localStorage.setItem("visitorCount", count);
+
+      const visitorCountElement = document.getElementById("visitor-count");
+      if (visitorCountElement) {
+        visitorCountElement.textContent = count;
+      }
+    }
+    updateVisitorCount();
+  </script>
+  
+<script>
 function openNav() {
   const sideMenu = document.getElementById("side-menu");
   if (sideMenu) {
-    sideMenu.style.width = "250px"; // Set width to open the sidebar
+    sideMenu.style.width = "250px"; 
   }
 }
-
-// Close the side menu
 function closeNav() {
   const sideMenu = document.getElementById("side-menu");
   if (sideMenu) {
-    sideMenu.style.width = "0"; // Set width to 0 to close the sidebar
+    sideMenu.style.width = "0"; 
   }
 }
 
-   </script>
-  <script src="js/index.js" type="module"></script>
+</script>
+<script src="js/index.js" type="module"></script>
 </body>
 </html>
