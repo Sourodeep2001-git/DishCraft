@@ -19,12 +19,12 @@ import { getDatabase, ref as dbRef, set } from 'https://www.gstatic.com/firebase
 
 // Firebase Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCcl4TrqfjofKvcMnl-oBQSLo0R020HYaA",
-    authDomain: "dishcraft-f95f3.firebaseapp.com",
-    projectId: "dishcraft-f95f3",
-    storageBucket: "dishcraft-f95f3.firebasestorage.app",
-    messagingSenderId: "373853687903",
-    appId: "1:373853687903:web:a5f990737d712259328bea"
+  apiKey: "AIzaSyCcl4TrqfjofKvcMnl-oBQSLo0R020HYaA",
+  authDomain: "dishcraft-f95f3.firebaseapp.com",
+  projectId: "dishcraft-f95f3",
+  storageBucket: "dishcraft-f95f3.firebasestorage.app",
+  messagingSenderId: "373853687903",
+  appId: "1:373853687903:web:a5f990737d712259328bea"
 };
 
 // Initialize Firebase
@@ -40,15 +40,15 @@ const logoutButton = document.getElementById('logout-button');
 
 // Utility function to display a popup modal
 const showModal = (message, type = 'success') => {
-    const modalElement = document.getElementById('popupModal');
-    const modalBody = document.querySelector('#popupModal .modal-body');
-    const modalTitle = document.querySelector('#popupModal .modal-title');
-  
-    modalTitle.textContent = type === 'success' ? 'Success!' : 'Action Required';
-    modalBody.textContent = message;
-  
-    const modal = new bootstrap.Modal(modalElement);
-    modal.show();
+  const modalElement = document.getElementById('popupModal');
+  const modalBody = document.querySelector('#popupModal .modal-body');
+  const modalTitle = document.querySelector('#popupModal .modal-title');
+
+  modalTitle.textContent = type === 'success' ? 'Success!' : 'Action Required';
+  modalBody.textContent = message;
+
+  const modal = new bootstrap.Modal(modalElement);
+  modal.show();
 };
 
 // Track edit mode
@@ -77,9 +77,10 @@ const fetchRecipes = async () => {
             <h5 class="card-title">${recipe.name}</h5>
             <p class="card-text"><strong>Ingredients:</strong> ${recipe.ingredients}</p>
             <p class="card-text"><strong>Procedure:</strong> ${recipe.procedure}</p>
+            <p class="card-text"><strong>Author:</strong> ${recipe.author}</p>
           </div>
           <div class="card-footer d-flex justify-content-between">
-            <button class="btn btn-primary btn-sm edit-btn" data-id="${doc.id}" data-name="${recipe.name}" data-ingredients="${recipe.ingredients}" data-procedure="${recipe.procedure}">Edit</button>
+            <button class="btn btn-primary btn-sm edit-btn" data-id="${doc.id}" data-name="${recipe.name}" data-ingredients="${recipe.ingredients}" data-procedure="${recipe.procedure}" data-author="${recipe.author}">Edit</button>
             <button class="btn btn-danger btn-sm delete-btn" data-id="${doc.id}">Delete</button>
           </div>
         </div>
@@ -109,6 +110,7 @@ recipeForm.addEventListener('submit', async (e) => {
   const ingredients = document.getElementById('ingredients').value;
   const procedure = document.getElementById('procedure').value;
   const imageFile = document.getElementById('recipe-image').files[0];
+  const author = document.getElementById('author-name').value; // Get author name
 
   if (!imageFile) {
     showModal('Please upload an image for the recipe.', 'error');
@@ -126,13 +128,14 @@ recipeForm.addEventListener('submit', async (e) => {
 
     if (editMode) {
       const recipeRef = doc(db, 'recipes', editId);
-      await updateDoc(recipeRef, { name, ingredients, procedure, image: imageBase64 });
+      await updateDoc(recipeRef, { name, ingredients, procedure, image: imageBase64, author });
       // Store image URL in Realtime Database
       await set(dbRef(rtdb, 'recipes/' + editId), {
         name,
         ingredients,
         procedure,
         image: imageBase64,
+        author,
         userId: userEmail
       });
       showModal('Recipe updated successfully!', 'success');
@@ -145,6 +148,7 @@ recipeForm.addEventListener('submit', async (e) => {
         ingredients, 
         procedure, 
         image: imageBase64, 
+        author,  // Store author name
         userId: userEmail 
       });
       // Store image URL in Realtime Database
@@ -153,6 +157,7 @@ recipeForm.addEventListener('submit', async (e) => {
         ingredients,
         procedure,
         image: imageBase64,
+        author,
         userId: userEmail
       });
       showModal('Recipe added successfully!', 'success');
@@ -189,6 +194,7 @@ recipeList.addEventListener('click', async (e) => {
     document.getElementById('recipe-name').value = e.target.dataset.name;
     document.getElementById('ingredients').value = e.target.dataset.ingredients;
     document.getElementById('procedure').value = e.target.dataset.procedure;
+    document.getElementById('author-name').value = e.target.dataset.author; // Set author name
 
     showModal('Editing mode enabled. Make changes and save.', 'info');
   }
