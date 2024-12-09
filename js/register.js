@@ -1,7 +1,9 @@
 // Firebase initialization
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCcl4TrqfjofKvcMnl-oBQSLo0R020HYaA",
   authDomain: "dishcraft-f95f3.firebaseapp.com",
@@ -14,6 +16,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 const registerUser = async (name, email, password) => {
   try {
@@ -23,6 +26,14 @@ const registerUser = async (name, email, password) => {
     // Set the displayName after registration
     await updateProfile(user, {
       displayName: name
+    });
+
+    // Store user info in Firestore with user.uid as the document ID
+    await setDoc(doc(db, "users", user.uid), {
+      name: name,
+      email: email,
+      password : password,
+      uid: user.uid // Use UID as the document ID
     });
 
     // Show success popup
