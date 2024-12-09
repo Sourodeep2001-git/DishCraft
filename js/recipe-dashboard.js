@@ -198,10 +198,10 @@ recipeList.addEventListener('click', async (e) => {
 logoutButton.addEventListener('click', async () => {
   try {
     await signOut(auth); // Log the user out
-    showModal('You have been logged out successfully!', 'success'); // Show the logout popup
+    alert('You have been logged out successfully!', 'success'); // Show the logout popup
   } catch (err) {
     console.error('Error logging out:', err);
-    showModal('Error logging out. Please try again.', 'danger');
+    alert('Error logging out. Please try again.', 'danger');
   }
 });
 
