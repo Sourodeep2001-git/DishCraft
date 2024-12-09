@@ -1,7 +1,6 @@
 // Firebase initialization
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCcl4TrqfjofKvcMnl-oBQSLo0R020HYaA",
@@ -15,9 +14,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getDatabase(app);
-
-const registerForm = document.getElementById("register-form");
 
 const registerUser = async (name, email, password) => {
   try {
@@ -29,29 +25,24 @@ const registerUser = async (name, email, password) => {
       displayName: name
     });
 
-    console.log("User registered successfully with name:", name);
-    window.location.href = "login.html"; // Redirect after registration
+    // Show success popup
+    alert("Registration successful! Please login.");
+
+    // Redirect to login page
+    window.location.href = "login.html";
   } catch (error) {
     console.error("Error registering user:", error.message);
+    alert(error.message); // Show error message in popup
   }
 };
 
-// Example usage: Call registerUser() with user inputs
+// Event listener for form submission
 document.getElementById("register-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
+  // Call registerUser function
   registerUser(name, email, password);
-
-      // Update profile with display name
-      updateProfile(user, { displayName: name }).then(() => {
-        alert("Registration successful! Please login.");
-        window.location.href = "login.html";
-      });
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-
+});
