@@ -11,7 +11,7 @@ body {
   font-family: "Parkinsans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
-  background: linear-gradient(135deg, #007bff, #6c757d);
+  background: linear-gradient(135deg, #2568e6, #83e4c7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +74,42 @@ body {
 
 #register-form button:hover {
   background-color: #218838;
+}
+/* Style for the password container */
+.password-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Password input field */
+.password-container input {
+  width: 100%;
+  padding-right: 45px; /* Space for the eye icon */
+  box-sizing: border-box;
+}
+
+/* Eye icon */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px; /* Adjust icon size */
+  color: #888;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .toggle-password {
+    font-size: 16px; /* Slightly smaller icon for smaller screens */
+  }
 }
 
 /* Extra Links */
@@ -146,3 +182,4 @@ body {
     font-size: 0.7rem;
   }
 }
+
