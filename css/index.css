@@ -255,7 +255,17 @@ footer p {
   margin: 0;
   font-size: 0.9rem;
 }
+footer .visitor-counter {
+  font-weight: 500;
+  color: #eeecec;
+  font-size: 14px;
+}
 
+footer .visitor-counter span {
+  font-weight: 500;
+  color: #7dd3e2;
+  font-size: 14px;
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
   .menu-icon {
