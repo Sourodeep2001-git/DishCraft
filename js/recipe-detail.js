@@ -27,16 +27,12 @@ const fetchRecipeDetails = async () => {
     if (recipeDoc.exists()) {
       const recipe = recipeDoc.data();
 
-      const userRef = doc(db, "users", recipe.userId);
-      const userDoc = await getDoc(userRef);
-      const authorName = userDoc.exists() ? userDoc.data().name : "Unknown";
-
       recipeDetail.innerHTML = `
         <h2>${recipe.name}</h2>
         <img src="${recipe.image}" alt="${recipe.name}" class="img-fluid rounded mb-4">
         <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
         <p><strong>Procedure:</strong> ${recipe.procedure}</p>
-        <p><strong>Author:</strong> ${authorName}</p>
+        <p><strong>Author:</strong> ${recipe.author}</p>
       `;
     } else {
       recipeDetail.innerHTML = "<p>Recipe not found.</p>";
