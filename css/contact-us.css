@@ -10,7 +10,6 @@ body {
   background: linear-gradient(to right, #edeef0, #aec6f3);
   font-family: 'Roboto', sans-serif;
 }
-/* Header */
 header {
   font-family: "Parkinsans", serif;
   background-color: #f3f4f6;
@@ -54,7 +53,6 @@ header nav a:hover {
   text-decoration: underline;
 }
 
-/* Contact Card Styling */
 .contact-card {
   background: linear-gradient(145deg, #ffffff, #f3f3f3);
   border-radius: 12px;
@@ -64,7 +62,6 @@ header nav a:hover {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Form Elements */
 .input-style {
   border: none;
   border-bottom: 2px solid #ccc;
@@ -84,13 +81,11 @@ header nav a:hover {
   color: #000;
 }
 
-/* Placeholder Text */
 .input-style::placeholder {
   color: #aaa;
   font-style: italic;
 }
 
-/* Submit Button */
 .submit-btn {
   background: linear-gradient(90deg, #007bff, #00c6ff);
   border: none;
@@ -109,7 +104,6 @@ header nav a:hover {
   transform: scale(1.02);
 }
 
-/* Success Message Styling */
 #successMessage {
   font-size: 0.9rem;
   background-color: #e7f9f0;
@@ -121,7 +115,6 @@ header nav a:hover {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Card Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -133,7 +126,6 @@ header nav a:hover {
   }
 }
 
-/* Contact Card Header */
 .contact-card h2 {
   font-size: 1.8rem;
   font-weight: bold;
@@ -143,7 +135,6 @@ header nav a:hover {
   letter-spacing: 1px;
 }
 
-/* Improved Responsiveness */
 @media (max-width: 768px) {
   .contact-card {
     padding: 1.5rem;
@@ -163,8 +154,6 @@ header nav a:hover {
   }
 }
 
-
-/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -175,7 +164,7 @@ header nav a:hover {
     transform: translateY(0);
   }
 }
-/* Footer */
+
 footer {
   font-family: "Parkinsans", serif;
   background-color: #000000;
