@@ -17,7 +17,6 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
 import { getDatabase, ref as dbRef, set } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js';
 
-// Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCcl4TrqfjofKvcMnl-oBQSLo0R020HYaA",
   authDomain: "dishcraft-f95f3.firebaseapp.com",
@@ -27,18 +26,15 @@ const firebaseConfig = {
   appId: "1:373853687903:web:a5f990737d712259328bea"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 const rtdb = getDatabase(app);
 
-// DOM Elements
 const recipeForm = document.getElementById('recipe-form');
 const recipeList = document.getElementById('recipe-list');
 const logoutButton = document.getElementById('logout-button');
 
-// Utility function to display a popup modal
 const showModal = (message, type = 'success') => {
   const modalElement = document.getElementById('popupModal');
   const modalBody = document.querySelector('#popupModal .modal-body');
@@ -51,11 +47,9 @@ const showModal = (message, type = 'success') => {
   modal.show();
 };
 
-// Track edit mode
 let editMode = false;
 let editId = null;
 
-// Fetch Recipes from Firestore for the logged-in user
 const fetchRecipes = async () => {
   try {
     const user = auth.currentUser;
@@ -92,7 +86,6 @@ const fetchRecipes = async () => {
   }
 };
 
-// Convert image file to base64 string
 const toBase64 = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -110,7 +103,7 @@ recipeForm.addEventListener('submit', async (e) => {
   const ingredients = document.getElementById('ingredients').value;
   const procedure = document.getElementById('procedure').value;
   const imageFile = document.getElementById('recipe-image').files[0];
-  const author = document.getElementById('author-name').value; // Get author name
+  const author = document.getElementById('author-name').value; 
 
   if (!imageFile) {
     showModal('Please upload an image for the recipe.', 'error');
@@ -122,14 +115,11 @@ recipeForm.addEventListener('submit', async (e) => {
     if (!user) return;
 
     const userEmail = user.email;
-
-    // Convert image to base64 string
     const imageBase64 = await toBase64(imageFile);
 
     if (editMode) {
       const recipeRef = doc(db, 'recipes', editId);
       await updateDoc(recipeRef, { name, ingredients, procedure, image: imageBase64, author });
-      // Store image URL in Realtime Database
       await set(dbRef(rtdb, 'recipes/' + editId), {
         name,
         ingredients,
@@ -148,10 +138,10 @@ recipeForm.addEventListener('submit', async (e) => {
         ingredients, 
         procedure, 
         image: imageBase64, 
-        author,  // Store author name
+        author,  
         userId: userEmail 
       });
-      // Store image URL in Realtime Database
+      
       await set(dbRef(rtdb, 'recipes/' + docRef.id), {
         name,
         ingredients,
@@ -177,7 +167,7 @@ recipeList.addEventListener('click', async (e) => {
 
     try {
       await deleteDoc(doc(db, 'recipes', recipeId));
-      await set(dbRef(rtdb, 'recipes/' + recipeId), null); // Remove from Realtime DB
+      await set(dbRef(rtdb, 'recipes/' + recipeId), null); 
       showModal('Recipe deleted successfully!', 'success');
       fetchRecipes();
     } catch (err) {
@@ -194,7 +184,7 @@ recipeList.addEventListener('click', async (e) => {
     document.getElementById('recipe-name').value = e.target.dataset.name;
     document.getElementById('ingredients').value = e.target.dataset.ingredients;
     document.getElementById('procedure').value = e.target.dataset.procedure;
-    document.getElementById('author-name').value = e.target.dataset.author; // Set author name
+    document.getElementById('author-name').value = e.target.dataset.author; 
 
     showModal('Editing mode enabled. Make changes and save.', 'info');
   }
@@ -203,8 +193,8 @@ recipeList.addEventListener('click', async (e) => {
 // Logout User
 logoutButton.addEventListener('click', async () => {
   try {
-    await signOut(auth); // Log the user out
-    alert('You have been logged out successfully!', 'success'); // Show the logout popup
+    await signOut(auth); 
+    alert('You have been logged out successfully!', 'success'); 
   } catch (err) {
     console.error('Error logging out:', err);
     alert('Error logging out. Please try again.', 'danger');
