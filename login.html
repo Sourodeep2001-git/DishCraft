@@ -33,11 +33,10 @@
 
   if (passwordInput && togglePassword) {
     togglePassword.addEventListener("click", () => {
-      // Toggle password visibility
+
       const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
       passwordInput.setAttribute("type", type);
 
-      // Toggle the icon
       if (type === "password") {
         eyeIcon.classList.remove("fa-eye-slash");
         eyeIcon.classList.add("fa-eye");
