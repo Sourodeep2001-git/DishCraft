@@ -4,16 +4,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* General Styles */
 body {
     font-family: "Parkinsans", serif;
     background-color: #8b8a8a;
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Full-height for viewport */
+    min-height: 100vh; 
   }  
-  /* Header */
+ 
   header {
     background-color: #f3f4f6;
     box-shadow: 0 4px 6px rgba(218, 217, 217, 0.1);
@@ -34,7 +33,6 @@ body {
     text-decoration: underline;
   }
   
-  /* Main Content */
   #recipe-detail {
     background: linear-gradient(145deg, #ffffff, #f3f4f6);
   }
@@ -59,9 +57,9 @@ body {
   }
   
   main {
-    flex: 1; /* Push footer to the bottom */
+    flex: 1; 
   }
-  /* Footer */
+
   footer {
     background-color: #000000;
     position:sticky;
@@ -83,7 +81,6 @@ body {
     font-size: 0.9rem;
   }
   
-  /* Responsive Styles */
   @media (max-width: 768px) {
     header {
       text-align: center;
