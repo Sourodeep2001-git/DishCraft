@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
-/* General Reset */
 body, h2, input, button {
   margin: 0;
   padding: 0;
@@ -17,10 +16,9 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  padding: 10px; /* Prevents content from touching screen edges */
+  padding: 10px; 
 }
 
-/* Form Container */
 #register-form {
   background: #ffffff;
   padding: 2rem;
@@ -31,7 +29,6 @@ body {
   text-align: center;
 }
 
-/* Form Heading */
 #register-form h2 {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
@@ -39,7 +36,6 @@ body {
   color: #333;
 }
 
-/* Input Fields */
 #register-form input[type="text"],
 #register-form input[type="email"],
 #register-form input[type="password"] {
@@ -58,7 +54,6 @@ body {
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
 }
 
-/* Submit Button */
 #register-form button {
   width: 100%;
   padding: 0.75rem;
@@ -75,7 +70,7 @@ body {
 #register-form button:hover {
   background-color: #218838;
 }
-/* Style for the password container */
+
 .password-container {
   position: relative;
   width: 100%;
@@ -83,21 +78,19 @@ body {
   align-items: center;
 }
 
-/* Password input field */
 .password-container input {
   width: 100%;
-  padding-right: 45px; /* Space for the eye icon */
+  padding-right: 45px; 
   box-sizing: border-box;
 }
 
-/* Eye icon */
 .toggle-password {
   position: absolute;
   right: 10px;
   top: 35%;
   transform: translateY(-50%);
   cursor: pointer;
-  font-size: 18px; /* Adjust icon size */
+  font-size: 18px; 
   color: #888;
 }
 
@@ -105,14 +98,11 @@ body {
   color: #333;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .toggle-password {
-    font-size: 16px; /* Slightly smaller icon for smaller screens */
-  }
+    font-size: 16px;
 }
 
-/* Extra Links */
 .extra-links {
   margin-top: 1rem;
   font-size: 0.875rem;
@@ -128,7 +118,6 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   body {
     padding: 20px;
@@ -183,3 +172,4 @@ body {
   }
 }
 
+}
