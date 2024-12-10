@@ -14,11 +14,9 @@ const firebaseConfig = {
   appId: "1:373853687903:web:a5f990737d712259328bea"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Login form submission
 const loginForm = document.getElementById("login-form");
 
 loginForm.addEventListener("submit", (e) => {
@@ -29,14 +27,13 @@ loginForm.addEventListener("submit", (e) => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      window.location.href = "recipe-dashboard.html"; // Redirect to user dashboard/profile
+      window.location.href = "recipe-dashboard.html"; 
     })
     .catch((error) => {
       alert(error.message);
     });
 });
 
-// Forgot Password functionality
 const forgotPasswordLink = document.querySelector(".forgot-password");
 
 forgotPasswordLink.addEventListener("click", (e) => {
